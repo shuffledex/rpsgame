@@ -1,3 +1,7 @@
+body {
+	background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+}
+
 .container {
 	max-width: 800px;
 }
@@ -21,14 +25,29 @@
 	text-align: center;
 	margin: 2.5rem auto 0;
 	font-size: 8rem;
+	margin-bottom: 1rem;
+}
+
+.buttons {
+	text-align: center;
+	margin-bottom: 5rem;
+}
+
+.separator {
+	display: inline;
+	margin: 0 12px;
+}
+
+.button {
+	border-color: black;
 }
 
 @media (min-width: 550px) {
 	.header {
-		margin-top: 18rem;
+		margin-top: 6rem;
 	}
 	.value-props {
-		margin-top: 9rem;
+		margin-top: 4rem;
 		margin-bottom: 7rem;
 	}
 	.value-img {
