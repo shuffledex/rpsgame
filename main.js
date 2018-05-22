@@ -15,7 +15,7 @@ $(function() {
 	//const callbackUrl = NebPay.config.mainnetUrl;
 	//const contract = "n1jh7Peq1WVHN3A3EKdQc4V7q9WeBpTMVfk";
 	const callbackUrl = NebPay.config.testnetUrl;
-	const contract = "n1mxwW4K8bfwhcZrYMyJjCcxBSVvRu8wnvz";
+	const contract = "n1nRaWFtRoWB6oUFAqBNneE8XMMGGNdATQZ";
 
 	getStats();
 
@@ -70,7 +70,72 @@ $(function() {
 			})
 		} else {
 			setTimeout(function() {
-				getStats()
+				getGames()
+			}, 5000);
+		}
+	};
+
+	function getLedger() {
+
+		var to = contract;
+		var value = 0;
+		var callFunction = "getLedger";
+		var callArgs = null;
+
+		nebPay.simulateCall(to, value, callFunction, callArgs, {
+			qrcode: {
+			    showQRCode: false
+			},
+			listener: getLedgerListener
+		});
+	};
+
+	function getLedgerListener(response) {
+		if (response.execute_err == "" || response.execute_err == "insufficient balance") {
+			var result = JSON.parse(response.result);
+
+			$('#ledgerList').html("")
+
+			result.forEach(function(element) {
+				var yourMovesHTML = "";
+				var oppMovesHTML = "";
+				(element.yourMoves).forEach((move) => {
+					yourMovesHTML = yourMovesHTML + '<i class="far fa-hand-'+move+'"></i> '
+				});
+
+				(element.opponentMoves).forEach((move) => {
+					oppMovesHTML = oppMovesHTML + '<i class="far fa-hand-'+move+'"></i> '
+				});
+
+				var html = '<tr>\
+								<td>\
+									<div class="row">\
+										<div class="six columns">\
+											You\
+										</div>\
+										<div class="six columns">\
+											'+yourMovesHTML+'\
+										</div>\
+									</div>\
+									<div class="row">\
+										<div class="six columns">\
+											Opp\
+										</div>\
+										<div class="six columns">\
+											'+oppMovesHTML+'\
+										</div>\
+									</div>\
+								</td>\
+								<td class="'+element.result+'">'+element.result+' '+toNas(element.value)+'</td>\
+								<td><a class="button button-primary" href="https://explorer.nebulas.io/#/testnet/tx/'+element.hash+'" style="padding:0 15px" target="_blank">View</a></td>\
+							</tr>';
+
+				$('#ledgerList').append(html)
+			})
+
+		} else {
+			setTimeout(function() {
+				getLedger()
 			}, 5000);
 		}
 	};
@@ -80,6 +145,7 @@ $(function() {
 			fadeDuration: 100
 		});
 		getGames()
+		getLedger()
 		return false;
 	});
 

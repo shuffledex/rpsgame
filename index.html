@@ -40,7 +40,7 @@
 			<h5 class="separator">or</h5>
 			<a class="button join" href="#" data-modal="#join">Join match</a>
 			<h5 class="separator">or</h5>
-			<a class="button history" href="#">Match history</a>
+			<a class="button history" href="#" data-modal="#ledger">Match history</a>
 		</div>
 
 		<p class="install">You have to install <a href="https://github.com/ChengOrangeJu/WebExtensionWallet" target="_blank">WebExtensionWallet</a> to play.</p>
@@ -124,6 +124,45 @@
 				<tbody id="gamesToJoin">
 					<tr>
 						<td>...</td>
+						<td>...</td>
+						<td>...</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</form>
+
+	<form id="ledger" class="ledger-modal">
+		<h4 class="title">Your history</h4>
+		<div class="row">
+			<table class="u-full-width">
+				<thead>
+					<tr>
+						<th>Match</th>
+						<th>Result</th>
+						<th>Tx</th>
+					</tr>
+				</thead>
+				<tbody id="ledgerList">
+					<tr>
+						<td>
+							<div class="row">
+								<div class="six columns">
+									You
+								</div>
+								<div class="six columns">
+									...
+								</div>
+							</div>
+							<div class="row">
+								<div class="six columns">
+									Opp
+								</div>
+								<div class="six columns">
+									..
+								</div>
+							</div>
+						</td>
 						<td>...</td>
 						<td>...</td>
 					</tr>

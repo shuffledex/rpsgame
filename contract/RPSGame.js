@@ -152,6 +152,11 @@ RPSGame.prototype = {
         }
     },
 
+    getLedger: function() {
+        var from = Blockchain.transaction.from;
+        return this.ledgerGame.get(from)
+    },
+
     _saveValue: function(value) {
         var valueCount = new BigNumber(this.valueCount)
         this.valueCount = valueCount.plus(value)
@@ -219,6 +224,7 @@ RPSGame.prototype = {
             rol: "creator",
             result: resultCreator,
             yourMoves: game.moves,
+            value: game.balance,
             opponentMoves: opponentMoves,
             hash: Blockchain.transaction.hash,
             time: Blockchain.transaction.timestamp
@@ -227,6 +233,7 @@ RPSGame.prototype = {
             rol: "opponent",
             result: resultOpponent,
             yourMoves: opponentMoves,
+            value: game.balance,
             opponentMoves: game.moves,
             hash: Blockchain.transaction.hash,
             time: Blockchain.transaction.timestamp

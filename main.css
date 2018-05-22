@@ -159,7 +159,7 @@ ul {
 }
 
 .modal input {
-	font-size: 4rem;
+	font-size: 2rem;
     height: 5rem;
     width: 210px;
 }
@@ -177,21 +177,34 @@ ul {
 	background-color: white;
 }
 
-.truncate {
-	width: 30px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-
 #create,
 #join,
+#ledger,
 #address {
 	display: none;
 }
 
 #join {
 	max-width: 650px;
+}
+
+.win,
+.lose,
+.tie {
+	text-transform: capitalize;
+	font-weight: 600;
+}
+
+.win {
+	color: green;
+}
+
+.lose {
+	color: red;
+}
+
+.tie {
+	color: black;
 }
 
 @media (min-width: 550px) {
