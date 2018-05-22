@@ -12,10 +12,13 @@ $(function() {
 		three: null
 	};
 	var modalStatus;
-	//const callbackUrl = NebPay.config.mainnetUrl;
-	//const contract = "n1jh7Peq1WVHN3A3EKdQc4V7q9WeBpTMVfk";
-	const callbackUrl = NebPay.config.testnetUrl;
-	const contract = "n1nRaWFtRoWB6oUFAqBNneE8XMMGGNdATQZ";
+	const callbackUrl = NebPay.config.mainnetUrl;
+	const contract = "n1fwefx8GECMgNWX8HRvUtt78PETod2MZgT";
+	/*
+		b8bbb38b47e8781bf6b11dd5c94704f7e384c2db7d34bda6726aa5ec080f7408
+	*/
+	//const callbackUrl = NebPay.config.testnetUrl;
+	//const contract = "n1nRaWFtRoWB6oUFAqBNneE8XMMGGNdATQZ";
 
 	getStats();
 
