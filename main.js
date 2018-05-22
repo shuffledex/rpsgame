@@ -66,7 +66,11 @@ $(function() {
 			var result = JSON.parse(response.result);
 			$('#gamesToJoin').html("");
 			result.forEach(function(element) {
-				$('#gamesToJoin').append('<tr><td>'+element.game+'</td><td>'+toNas(element.value)+'</td><td><a class="button button-primary" href="#create" rel="modal:open" id="joinMatch" data-game="'+element.game+'" data-value="'+toNas(element.value)+'">Join</a></td></tr>');
+				$('#gamesToJoin').append('<tr>\
+					<td>'+element.game+'</td>\
+					<td>'+toNas(element.value)+'</td>\
+					<td><a class="button button-primary" href="#create" rel="modal:open" id="joinMatch" data-game="'+element.game+'" data-value="'+toNas(element.value)+'">Join</a></td>\
+					</tr>');
 			})
 		} else {
 			setTimeout(function() {
@@ -127,7 +131,7 @@ $(function() {
 									</div>\
 								</td>\
 								<td class="'+element.result+'">'+element.result+' '+toNas(element.value)+'</td>\
-								<td><a class="button button-primary" href="https://explorer.nebulas.io/#/testnet/tx/'+element.hash+'" style="padding:0 15px" target="_blank">View</a></td>\
+								<td><a class="button button-primary" href="https://explorer.nebulas.io/#/tx/'+element.hash+'" style="padding:0 15px" target="_blank">View</a></td>\
 							</tr>';
 
 				$('#ledgerList').append(html)
@@ -185,6 +189,8 @@ $(function() {
 		intervalQuery = setInterval(function() {
 			createIntervalQuery();
 		}, 20000);
+
+		$('#waiting').modal();
 
 		return false;
 	});

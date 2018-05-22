@@ -106,7 +106,7 @@
 		<input type="text" id="address" disabled="disabled" />
 
 		<div class="row">
-			<a class="button u-full-width" href="#" id="btn-create">Create</a>
+			<a class="button u-full-width" id="btn-create">Create</a>
 		</div>
 	</form>
 
@@ -169,6 +169,17 @@
 				</tbody>
 			</table>
 		</div>
+	</form>
+
+	<form id="waiting" class="waitin-modal">
+		<h5 style="text-align: center; font-weight: 600">Now you have to confirm the transaction and wait the status result.</h5>
+		<p>If you got a <span class="error">TxReceipt Status fail</span> we suggest read this common errors:</p>
+		<ul style="font-size: 12px">
+			<li>If you have a game that never was played, you can not create other</li>
+			<li>You can not bet 0 NAS</li>
+			<li>Make sure you choose the three moves</li>
+			<li>You can not play you own game</li>
+		</ul>
 	</form>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
