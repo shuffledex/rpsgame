@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Rock Paper Scissors Blockchain game</title>
-	<meta name="description" content="Play the classic hand game Rock Paper Scissors in the Blockchain and win some NAV">
+	<meta name="description" content="Play the classic hand game Rock Paper Scissors in the Blockchain and win some NAS">
 	<meta name="author" content="Shuffledex">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -18,11 +18,11 @@
 
 	<div class="container">
 		<section class="header">
-			<h2>Play the classic hand game <i class="far fa-hand-rock"></i> <i class="far fa-hand-paper"></i> <i class="far fa-hand-scissors"></i> in the Blockchain and win some NAVs</h2>
+			<h2>Play the classic hand game <i class="far fa-hand-rock"></i> <i class="far fa-hand-paper"></i> <i class="far fa-hand-scissors"></i> in the Blockchain and win some NAS</h2>
 			<div class="value-props row">
 				<div class="four columns value-prop">
 					<i class="fas fa-hand-paper value-img"></i>
-					Create a new game, choose the move for every round and bet the amount of NAV you want.
+					Create a new game, choose the move for every round and bet the amount of NAS you want.
 				</div>
 				<div class="four columns value-prop">
 					<i class="fas fa-gamepad value-img"></i>
@@ -36,24 +36,77 @@
 		</section>
 
 		<div class="row buttons">
-			<a class="button" href="#">Create game</a>
+			<a class="button create" href="#" data-modal="#create">Create game</a>
 			<h5 class="separator">or</h5>
-			<a class="button" href="#">Join match</a>
+			<a class="button join" href="#">Join match</a>
 		</div>
 
 		<p class="install">You have to install <a href="https://github.com/ChengOrangeJu/WebExtensionWallet" target="_blank">WebExtensionWallet</a> to play.</p>
 
 		<div class="row stats">
 			<div class="six columns">
-				<h2 id="gamesCreated">11123</h2> games created
+				<h2 id="gamesCreated">...</h2> games created
 			</div>
 			<div class="six columns">
-				<h2 id="nasTransacted">122123</h2> NAS transacted
+				<h2 id="nasTransacted">...</h2> NAS transacted
 			</div>
 		</div>
 	</div>
 
+	<form id="create" class="modal">
+		<h4 class="title">Create game</h4>
+		<div class="row">
+			<div class="four columns round">
+				Round one
+			</div>
+			<div class="eight columns">
+				<ul>
+					<li class="btn btn-switcher"><i class="far fa-hand-rock"></i></li>
+					<li class="btn btn-switcher"><i class="far fa-hand-paper"></i></li>
+					<li class="btn btn-switcher"><i class="far fa-hand-scissors"></i></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="four columns round">
+				Round two
+			</div>
+			<div class="eight columns">
+				<ul>
+					<li class="btn btn-switcher"><i class="far fa-hand-rock"></i></li>
+					<li class="btn btn-switcher"><i class="far fa-hand-paper"></i></li>
+					<li class="btn btn-switcher"><i class="far fa-hand-scissors"></i></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="four columns round">
+				Round three
+			</div>
+			<div class="eight columns">
+				<ul>
+					<li class="btn btn-switcher"><i class="far fa-hand-rock"></i></li>
+					<li class="btn btn-switcher"><i class="far fa-hand-paper"></i></li>
+					<li class="btn btn-switcher"><i class="far fa-hand-scissors"></i></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="four columns round">
+				NAS bet
+			</div>
+			<div class="eight columns">
+				<input type="text" placeholder="1" />
+			</div>
+		</div>
+		<div class="row">
+			<a class="button u-full-width" href="#">Create</a>
+		</div>
+	</form>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+	<script src="nebPay.js"></script>
+	<script src="main.js"></script>
 </body>
 </html>
