@@ -39,6 +39,8 @@
 			<a class="button create" href="#" data-modal="#create">Create game</a>
 			<h5 class="separator">or</h5>
 			<a class="button join" href="#">Join match</a>
+			<h5 class="separator">or</h5>
+			<a class="button history" href="#">Match history</a>
 		</div>
 
 		<p class="install">You have to install <a href="https://github.com/ChengOrangeJu/WebExtensionWallet" target="_blank">WebExtensionWallet</a> to play.</p>
@@ -60,10 +62,10 @@
 				Round one
 			</div>
 			<div class="eight columns">
-				<ul>
-					<li class="btn btn-switcher"><i class="far fa-hand-rock"></i></li>
-					<li class="btn btn-switcher"><i class="far fa-hand-paper"></i></li>
-					<li class="btn btn-switcher"><i class="far fa-hand-scissors"></i></li>
+				<ul data-round="one">
+					<li class="btn btn-switcher"><i class="far fa-hand-rock" data-choice="rock"></i></li>
+					<li class="btn btn-switcher"><i class="far fa-hand-paper" data-choice="paper"></i></li>
+					<li class="btn btn-switcher"><i class="far fa-hand-scissors" data-choice="scissors"></i></li>
 				</ul>
 			</div>
 		</div>
@@ -72,10 +74,10 @@
 				Round two
 			</div>
 			<div class="eight columns">
-				<ul>
-					<li class="btn btn-switcher"><i class="far fa-hand-rock"></i></li>
-					<li class="btn btn-switcher"><i class="far fa-hand-paper"></i></li>
-					<li class="btn btn-switcher"><i class="far fa-hand-scissors"></i></li>
+				<ul data-round="two">
+					<li class="btn btn-switcher"><i class="far fa-hand-rock" data-choice="rock"></i></li>
+					<li class="btn btn-switcher"><i class="far fa-hand-paper" data-choice="paper"></i></li>
+					<li class="btn btn-switcher"><i class="far fa-hand-scissors" data-choice="scissors"></i></li>
 				</ul>
 			</div>
 		</div>
@@ -84,10 +86,10 @@
 				Round three
 			</div>
 			<div class="eight columns">
-				<ul>
-					<li class="btn btn-switcher"><i class="far fa-hand-rock"></i></li>
-					<li class="btn btn-switcher"><i class="far fa-hand-paper"></i></li>
-					<li class="btn btn-switcher"><i class="far fa-hand-scissors"></i></li>
+				<ul data-round="three">
+					<li class="btn btn-switcher"><i class="far fa-hand-rock" data-choice="rock"></i></li>
+					<li class="btn btn-switcher"><i class="far fa-hand-paper" data-choice="paper"></i></li>
+					<li class="btn btn-switcher"><i class="far fa-hand-scissors" data-choice="scissors"></i></li>
 				</ul>
 			</div>
 		</div>
@@ -96,17 +98,18 @@
 				NAS bet
 			</div>
 			<div class="eight columns">
-				<input type="text" placeholder="1" />
+				<input type="text" placeholder="1" id="bet" />
 			</div>
 		</div>
 		<div class="row">
-			<a class="button u-full-width" href="#">Create</a>
+			<a class="button u-full-width" href="#" id="btn-create">Create</a>
 		</div>
 	</form>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 	<script src="nebPay.js"></script>
+	<script src="bignumber.min.js"></script>
 	<script src="main.js"></script>
 </body>
 </html>
