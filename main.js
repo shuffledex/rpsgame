@@ -1,10 +1,17 @@
 $(function() {
 	const NebPay = require("nebpay");
 	const nebPay = new NebPay();
+	const CREATE = "create";
+	const JOIN = "join";
 
 	var serialNumber;
 	var intervalQuery;
-	var moves;
+	var moves = {
+		one: null,
+		two: null,
+		three: null
+	};
+	var modalStatus;
 	//const callbackUrl = NebPay.config.mainnetUrl;
 	//const contract = "n1jh7Peq1WVHN3A3EKdQc4V7q9WeBpTMVfk";
 	const callbackUrl = NebPay.config.testnetUrl;
@@ -23,11 +30,11 @@ $(function() {
 			qrcode: {
 			    showQRCode: false
 			},
-			listener: loadGetStats
+			listener: getStatsListener
 		});
 	}
 
-	function loadGetStats(response) {
+	function getStatsListener(response) {
 		if (response.execute_err == "" || response.execute_err == "insufficient balance") {
 			var result = JSON.parse(response.result);
 			$("#gamesCreated").html(result.games);
@@ -39,10 +46,40 @@ $(function() {
 		}
 	};
 
+	function getGames() {
+
+		var to = contract;
+		var value = 0;
+		var callFunction = "getGames";
+		var callArgs = null;
+
+		nebPay.simulateCall(to, value, callFunction, callArgs, {
+			qrcode: {
+			    showQRCode: false
+			},
+			listener: getGamesListener
+		});
+	};
+
+	function getGamesListener(response) {
+		if (response.execute_err == "" || response.execute_err == "insufficient balance") {
+			var result = JSON.parse(response.result);
+			$('#gamesToJoin').html("");
+			result.forEach(function(element) {
+				$('#gamesToJoin').append('<tr><td>'+element.game+'</td><td>'+toNas(element.value)+'</td><td><a class="button button-primary" href="#create" rel="modal:open" id="joinMatch" data-game="'+element.game+'" data-value="'+toNas(element.value)+'">Join</a></td></tr>');
+			})
+		} else {
+			setTimeout(function() {
+				getStats()
+			}, 5000);
+		}
+	};
+
 	$('a[data-modal]').on('click', function() {
 		$($(this).data('modal')).modal({
 			fadeDuration: 100
 		});
+		getGames()
 		return false;
 	});
 
@@ -55,8 +92,18 @@ $(function() {
 
 	    var to = contract;
 		var value = $("#bet").val();
-	    var callFunction = "create";
+		var callFunction;
+	    
 	    var callArgs = [];
+
+		if (modalStatus == CREATE) {
+			callFunction = "create";
+		}
+		if (modalStatus == JOIN) {
+			callFunction = "play";
+			callArgs.push($("#address").val())
+		}
+
 	    callArgs.push(moves.one)
 	    callArgs.push(moves.two)
 	    callArgs.push(moves.three)
@@ -108,4 +155,28 @@ $(function() {
 		$("#bet").val("");
 		$('.create-modal').find("li").removeClass("selected");
 	});
+
+	$("div .create").on("click", function() {
+		modalStatus = CREATE
+		$("#create .title").html("Create game")
+		$("#create #btn-create").html("Create")
+		$("#create #bet").css("display", "block")
+		$("#create #willBet").css("display", "none")
+	});
+
+	$(document).on("click", "a#joinMatch", function() {
+		modalStatus = JOIN
+		var game = $(this).attr("data-game")
+		var value = $(this).attr("data-value")
+
+		$("#create .title").html("Match vs. " + game)
+		$("#create #btn-create").html("Join")
+		$("#create #bet").css("display", "none")
+		$("#create #willBet").css("display", "block")
+		$("#create #willBet strong").html(value)
+
+		$("#create #bet").val(value)
+		$("#create #address").val(game)
+	});
+
 });

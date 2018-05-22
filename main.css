@@ -107,27 +107,29 @@ ul {
 	padding: 12px 20px;
 	margin: 0;
 	vertical-align: middle;
-	border: solid 1px #ccc;
+	/*border: solid 1px #ccc;*/
+
 	font-size: 3rem;
 	border-radius: 4px;
 	cursor: pointer;
 }
 
 .btn-switcher {
-	background: linear-gradient(to bottom, white, #eeeeee);
+	/*background: linear-gradient(to bottom, white, #eeeeee);*/
 	display: table-cell;
 	border-right: none;
 	border-radius: 0;
 	color: #433f33;
+	border-radius: 4px;
 }
 
 .btn-switcher:first-child {
-	border-radius: 4px 0 0 4px;
+	/*border-radius: 4px 0 0 4px;*/
 }
 
 .btn-switcher:last-child {
-	border-radius: 0 4px 4px 0;
-	border-right: solid 1px #ccc;
+	/*border-radius: 0 4px 4px 0;*/
+	/*border-right: solid 1px #ccc;*/
 }
 
 .btn-switcher:hover {
@@ -145,14 +147,20 @@ ul {
 	cursor: default;
 }
 
-.round {
+.round,
+.bet {
 	line-height: 7rem;
 	text-align: right;
 }
 
+.bet,
+#willBet {
+	line-height: 5rem;
+}
+
 .modal input {
 	font-size: 4rem;
-    height: 7rem;
+    height: 5rem;
     width: 210px;
 }
 
@@ -167,6 +175,23 @@ ul {
 	border-color: #a6c1ee;
 	color: #a6c1ee;
 	background-color: white;
+}
+
+.truncate {
+	width: 30px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#create,
+#join,
+#address {
+	display: none;
+}
+
+#join {
+	max-width: 650px;
 }
 
 @media (min-width: 550px) {

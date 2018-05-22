@@ -38,7 +38,7 @@
 		<div class="row buttons">
 			<a class="button create" href="#" data-modal="#create">Create game</a>
 			<h5 class="separator">or</h5>
-			<a class="button join" href="#">Join match</a>
+			<a class="button join" href="#" data-modal="#join">Join match</a>
 			<h5 class="separator">or</h5>
 			<a class="button history" href="#">Match history</a>
 		</div>
@@ -94,15 +94,41 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="four columns round">
+			<div class="four columns round bet">
 				NAS bet
 			</div>
 			<div class="eight columns">
 				<input type="text" placeholder="" id="bet" />
+				<span id="willBet">You'll bet <strong>0.00001</strong></span>
 			</div>
 		</div>
+
+		<input type="text" id="address" disabled="disabled" />
+
 		<div class="row">
 			<a class="button u-full-width" href="#" id="btn-create">Create</a>
+		</div>
+	</form>
+
+	<form id="join" class="join-modal">
+		<h4 class="title">Join match</h4>
+		<div class="row">
+			<table class="u-full-width">
+				<thead>
+					<tr>
+						<th>Opponent</th>
+						<th>Bet</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody id="gamesToJoin">
+					<tr>
+						<td>...</td>
+						<td>...</td>
+						<td>...</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</form>
 
