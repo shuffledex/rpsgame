@@ -43,11 +43,6 @@ $(function() {
 		$($(this).data('modal')).modal({
 			fadeDuration: 100
 		});
-		moves = {
-			one: null,
-			two: null,
-			three: null
-		}
 		return false;
 	});
 
@@ -102,5 +97,15 @@ $(function() {
 
 	function toNas(value) {
 		return parseInt(value) * Math.pow(10,(-18));
-	}
+	};
+
+	$('.create-modal').on($.modal.BEFORE_CLOSE, function(event, modal) {
+		moves = {
+			one: null,
+			two: null,
+			three: null
+		}
+		$("#bet").val("");
+		$('.create-modal').find("li").removeClass("selected");
+	});
 });
